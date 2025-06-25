@@ -1,0 +1,176 @@
+承知いたしました。ご自身の認識されている4つのレイヤー、**ドメイン層、アプリケーション層、インフラストラクチャ層、プレゼンテーション層**に沿って、先ほど書き出した要素を再編し、それぞれの層が持つべき責任とクラスを明確にします。
+
+---
+
+## 1. ドメイン層 (Domain Layer)
+
+システムの**ビジネスロジックの核**であり、最も純粋なビジネスルールと概念を表現します。他のどの層にも依存せず、ビジネスの言葉で記述されます。
+
+### 責任
+* ビジネスエンティティと値オブジェクトの定義
+* エンティティ間の関係と整合性の維持
+* 集約の定義と集約ルートの管理
+* 複雑なビジネスルールをカプセル化したドメインサービスの提供
+* リポジトリのインターフェース（契約）の定義
+
+### 含まれる要素
+
+#### エンティティ (Entities)
+識別子を持ち、そのライフサイクルを通じて状態が変化し、**自身のビジネスロジック**を内包します。
+* **`User`**: ユーザーに関する情報と振る舞い（パスワード変更、プロフィール更新など）。
+    * フィールド: `UserId`, `Username`, `Email`, `PasswordHash`, `CreatedAt`, `UpdatedAt`
+    * メソッド: `ChangeUsername()`, `ChangeEmail()`, `ChangePassword()`, `UpdateLastLoginTime()`
+* **`Recipe`**: レシピに関する情報と振る舞い（材料・手順の追加・削除・更新、公開・非公開など）。**集約ルート**。
+    * フィールド: `RecipeId`, `CreatorId`, `Title`, `Description`, `CookingTime`, `ImageUrl`, `CategoryId`, `IsPublished`, `CreatedAt`, `UpdatedAt`, `_ingredients` (リスト), `_steps` (リスト), `_tagIds` (リスト)
+    * メソッド: `UpdateDetails()`, `AddIngredient()`, `RemoveIngredient()`, `UpdateIngredient()`, `AddStep()`, `RemoveStep()`, `UpdateStep()`, `AddTag()`, `RemoveTag()`, `Publish()`, `Unpublish()`
+* **`Ingredient`**: レシピに含まれる材料。`Recipe` 集約の内部要素。
+    * フィールド: `IngredientId`, `Name`, `Quantity`
+    * メソッド: `UpdateQuantity()`, `UpdateName()`
+* **`Step`**: レシピの調理手順。`Recipe` 集約の内部要素。
+    * フィールド: `StepId`, `OrderNumber`, `Description`
+    * メソッド: `UpdateDescription()`, `UpdateOrderNumber()`
+* **`Menu`**: 献立に関する情報と振る舞い（レシピの追加・削除・更新など）。**集約ルート**。
+    * フィールド: `MenuId`, `CreatorId`, `MenuDate`, `_menuItems` (リスト)
+    * メソッド: `AddMenuItem()`, `RemoveMenuItem()`, `UpdateMenuItemServingCount()`
+* **`MenuItem`**: 献立に含まれるレシピ項目。`Menu` 集約の内部要素。
+    * フィールド: `MenuItemId`, `RecipeId`, `ServingCount`
+    * メソッド: `UpdateServingCount()`
+* **`Category`**: レシピ分類カテゴリに関する情報と振る舞い。
+    * フィールド: `CategoryId`, `Name`
+    * メソッド: `ChangeName()`
+* **`Tag`**: レシピのタグに関する情報と振る舞い。
+    * フィールド: `TagId`, `Name`
+    * メソッド: `ChangeName()`
+
+#### 値オブジェクト (Value Objects)
+識別子を持たず、その属性値によって同一性が判断される不変なオブジェクト。
+* **`UserId`, `RecipeId`, `MenuId`, `CategoryId`, `TagId`, `IngredientId`, `StepId`, `MenuItemId`**: 各エンティティの識別子を型安全に表現。
+    * フィールド: `Value` (Guid or int)
+    * メソッド: `Equals()`, `GetHashCode()`, `ToString()`
+* **`CookingTime`**: 調理時間（例: 分単位）。
+    * フィールド: `Minutes`
+    * メソッド: `Add()`, `ToString()`, `Equals()`, `GetHashCode()`
+* **`Quantity`**: 材料の分量（値と単位）。
+    * フィールド: `Value`, `Unit`
+    * メソッド: `Add()`, `ToString()`, `Equals()`, `GetHashCode()`
+* **`EmailAddress`**: メールアドレスの形式。
+    * フィールド: `Value`
+    * メソッド: `Equals()`, `GetHashCode()`, `ToString()`
+
+#### ドメインサービス (Domain Services)
+特定のエンティティに属さない、複数のエンティティにまたがるような複雑なビジネスロジック。
+* **`MenuSuggestionService`**: ユーザーの好みや食材などを考慮した献立提案ロジック。
+    * フィールド: `IRecipeRepository`, `IIngredientRepository` (依存性注入で受け取る)
+    * メソッド: `SuggestWeeklyMenu()`, `SuggestDailyMenu()`
+* **`RecipeSearchService`**: 複雑な条件によるレシピ検索ロジック。
+    * フィールド: `IRecipeRepository`, `ICategoryRepository`, `ITagRepository` (依存性注入で受け取る)
+    * メソッド: `SearchRecipes()`
+
+#### リポジトリインターフェース (Repository Interfaces)
+集約ルートの永続化に関する「契約」を定義。実装はインフラストラクチャ層が行います。
+* **`IRecipeRepository`**: レシピ集約の永続化操作（保存、取得、削除、検索など）。
+    * メソッド: `FindById()`, `Save()`, `Delete()`, `FindByCriteria()`
+* **`IUserRepository`**: ユーザーの永続化操作。
+    * メソッド: `FindById()`, `FindByEmail()`, `Save()`, `Delete()`
+* **`IMenuRepository`**: 献立集約の永続化操作。
+    * メソッド: `FindById()`, `FindByCreatorId()`, `Save()`, `Delete()`
+* **`ICategoryRepository`**: カテゴリの永続化操作。
+    * メソッド: `FindAll()`, `FindById()`, `Save()`
+* **`ITagRepository`**: タグの永続化操作。
+    * メソッド: `FindAll()`, `FindById()`, `Save()`
+
+---
+
+## 2. アプリケーション層 (Application Layer)
+
+ユーザーのユースケース（機能要求）を表現し、ドメイン層のオブジェクトやサービスを調整して、ビジネスロジックの実行順序を制御します。トランザクションの管理もここで行われます。
+
+### 責任
+* ユースケースごとの処理フローの制御
+* プレゼンテーション層からの入力をドメイン層に適した形に変換（DTOからドメインオブジェクトへ）
+* ドメイン層のサービスやエンティティのメソッドを呼び出す
+* ドメイン層から返された結果をプレゼンテーション層に適した形に変換（ドメインオブジェクトからDTOへ）
+* トランザクション境界の定義
+
+### 含まれる要素
+
+#### アプリケーションサービス (Application Services)
+特定のユースケースに対応するメソッドを提供します。
+* **`UserApplicationService`**: ユーザー関連のユースケース。
+    * フィールド: `IUserRepository` (依存性注入)
+    * メソッド: `RegisterUser(RegisterUserDto dto)`, `AuthenticateUser(LoginDto dto)`, `UpdateUserProfile(UpdateUserDto dto)`, `ChangeUserPassword(ChangePasswordDto dto)`
+* **`RecipeApplicationService`**: レシピ関連のユースケース。
+    * フィールド: `IRecipeRepository`, `IUserRepository`, `ICategoryRepository`, `ITagRepository`, `RecipeSearchService` (依存性注入)
+    * メソッド: `RegisterRecipe(RegisterRecipeDto dto)`, `GetRecipeDetail(RecipeId id)`, `UpdateRecipe(UpdateRecipeDto dto)`, `DeleteRecipe(RecipeId id)`, `PublishRecipe(RecipeId id)`, `SearchRecipes(RecipeSearchCriteriaDto criteriaDto)`
+* **`MenuApplicationService`**: 献立関連のユースケース。
+    * フィールド: `IMenuRepository`, `IRecipeRepository`, `MenuSuggestionService` (依存性注入)
+    * メソッド: `SuggestMenu(MenuSuggestionRequestDto requestDto)`, `SaveMenu(SaveMenuDto dto)`, `GetMenu(MenuId id)`, `GetWeeklyMenus(UserId userId, DateTime weekStartDate)`
+
+#### データ転送オブジェクト (DTOs - Data Transfer Objects)
+レイヤー間でのデータの受け渡し専用のプレーンなデータ構造。振る舞いは持ちません。
+* `RegisterUserDto`, `LoginDto`, `UpdateUserDto`, `ChangePasswordDto`
+* `RegisterRecipeDto`, `UpdateRecipeDto`, `RecipeDetailDto`, `RecipeSummaryDto`, `RecipeSearchCriteriaDto`
+* `MenuSuggestionRequestDto`, `SuggestedMenuDto`, `SaveMenuDto`, `MenuDetailDto`
+* その他、各ユースケースで必要となる入力/出力DTO。
+
+---
+
+## 3. インフラストラクチャ層 (Infrastructure Layer)
+
+永続化、外部サービス連携、フレームワーク依存の実装など、技術的な詳細を扱います。ドメイン層で定義されたリポジトリインターフェースの具体的な実装を提供します。
+
+### 責任
+* データベースとのI/O操作
+* ファイルシステム操作、外部API連携など
+* 具体的なORM (Entity Framework Coreなど) の実装
+* リポジトリインターフェースの実装
+
+### 含まれる要素
+
+#### リポジトリ実装 (Repository Implementations)
+ドメイン層で定義されたリポジトリインターフェースを実装します。
+* **`RecipeRepositoryImpl`**: `IRecipeRepository` を実装し、EF Core を使ってデータベースの `Recipes` テーブルなどとやり取りします。
+* **`UserRepositoryImpl`**: `IUserRepository` を実装し、データベースの `Users` テーブルとやり取りします。
+* **`MenuRepositoryImpl`**: `IMenuRepository` を実装し、データベースの `Menus` テーブルとやり取りします。
+* **`CategoryRepositoryImpl`**: `ICategoryRepository` を実装。
+* **`TagRepositoryImpl`**: `ITagRepository` を実装。
+
+#### データベースコンテキスト / ORM設定
+* **`RecipeSharingDbContext`**: EF Core の `DbContext` クラス。データベース接続設定や DbSet の定義、モデルマッピング（エンティティとテーブルの対応付け）が含まれます。
+* **マイグレーションクラス**: データベーススキーマの変更履歴を管理するクラス。
+
+#### ヘルパー / ユーティリティ
+* `PasswordHasher`: パスワードのハッシュ化と検証の具体的な実装。
+
+---
+
+## 4. プレゼンテーション層 (Presentation Layer)
+
+ユーザーインターフェースを構築し、ユーザーからの入力を受け付け、アプリケーション層に処理を依頼し、結果をユーザーに表示します。
+
+### 責任
+* ユーザーインターフェース (UI) の描画と管理
+* ユーザー入力（ボタンクリック、テキスト入力など）のハンドリング
+* UI固有のバリデーション
+* アプリケーション層のサービスの呼び出し
+* アプリケーション層から返された結果のUIへの表示
+
+### 含まれる要素
+
+#### フォーム / コントロール (Forms / Controls)
+Windows Forms の画面やUIコンポーネント。
+* **`LoginForm`**: ユーザーログイン画面。
+* **`MainForm`**: メインアプリケーションウィンドウ、ナビゲーションなど。
+* **`RecipeListForm`**: レシピ一覧表示、検索結果表示。
+* **`RecipeDetailForm`**: 特定のレシピの詳細表示。
+* **`RecipeEditForm`**: レシピの新規作成/編集画面。
+* **`MenuSuggestionForm`**: 献立提案機能の画面。
+* **`UserProfileForm`**: ユーザーのプロフィール管理画面。
+* 各フォームの内部で、ボタン (`Button`), テキストボックス (`TextBox`), データグリッドビュー (`DataGridView`), コンボボックス (`ComboBox`) などの標準コントロールを使用します。
+
+#### UIロジック
+各フォームのイベントハンドラーで、アプリケーション層のメソッドを呼び出し、DTOとの変換、エラーハンドリングを行います。
+
+---
+
+この再編されたリストが、あなたのクラス図作成と実装の助けになれば幸いです。DDDの4層アーキテクチャでは、各層の責任が明確に分離されることが非常に重要です。この構造を意識して進めてみてください。
