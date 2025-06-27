@@ -1,0 +1,240 @@
+承知いたしました。ドメイン層とアプリケーション層に加えて、**インフラストラクチャ層**と**プレゼンテーション層**の具体的なクラスとメソッドの案を詳細化します。これにより、両層の役割と実装すべき内容がより明確になり、クラス図の作成を進めやすくなるはずです。
+
+---
+
+## 3. インフラストラクチャ層 (Infrastructure Layer) - 詳細化
+
+### 責任
+* **データベースとのI/O操作**: データの読み書き、トランザクション管理。
+* **外部システム連携**: 外部API呼び出し、ファイルシステム操作など。
+* **ドメイン層で定義されたリポジトリインターフェースの具体的な実装**: ORM（Entity Framework Coreなど）を利用して、ドメインオブジェクトとデータベースのテーブルをマッピングし、永続化・再構成を行います。
+* **技術的なヘルパー**: パスワードハッシュ化など、ビジネスロジックではないが技術的に必要な処理。
+
+### 含まれる要素
+
+#### リポジトリ実装 (Repository Implementations)
+ドメイン層で定義された**リポジトリインターフェース**を実装します。ここでは具体的なデータベースアクセス（例えば、`DbContext`を介したEF Coreの操作）を行います。
+
+* **`RecipeRepositoryImpl`**: `IRecipeRepository` を実装
+    * **フィールド**:
+        * `private RecipeSharingDbContext _dbContext;` (DIで受け取る)
+    * **コンストラクタ**:
+        * `RecipeRepositoryImpl(RecipeSharingDbContext dbContext)`
+    * **メソッド**:
+        * `Recipe? FindById(RecipeId id)`:
+            * DBから`Recipes`テーブルのレコードと関連する`Ingredients`、`Steps`レコードを取得。
+            * 取得したDBデータから**`Recipe`ドメインエンティティを再構築**して返す。
+        * `void Save(Recipe recipe)`:
+            * `recipe`ドメインエンティティを受け取る。
+            * 既存の場合は`DbContext`でエンティティの状態（追加/変更/削除）を追跡し、変更をDBにマッピング。
+            * 新規の場合はDBエンティティを作成し、`DbContext`に追加。
+            * `_dbContext.SaveChanges()`を呼び出し、**DBに変更を永続化**する。
+            * （材料や手順の追加・削除・更新も、Recipe集約の変更としてこの`Save`メソッドでまとめて処理されることが多い）
+        * `void Delete(RecipeId id)`:
+            * DBから対象レコードを検索し、`_dbContext.Remove()`で削除マーク。
+            * `_dbContext.SaveChanges()`を呼び出し、**DBからレコードを削除**する。
+        * `IReadOnlyList<Recipe> FindByCriteria(RecipeSearchCriteria criteria)`:
+            * `criteria`に基づき、LINQ to EntitiesなどでDBクエリを構築。
+            * 結果をDBから取得し、それぞれのDBデータから**`Recipe`ドメインエンティティを再構築**してリストで返す。
+
+* **`UserRepositoryImpl`**: `IUserRepository` を実装
+    * **フィールド**:
+        * `private RecipeSharingDbContext _dbContext;`
+    * **コンストラクタ**:
+        * `UserRepositoryImpl(RecipeSharingDbContext dbContext)`
+    * **メソッド**:
+        * `User? FindById(UserId id)`: DBからユーザーレコードを取得し、`User`ドメインエンティティを再構築。
+        * `User? FindByEmail(EmailAddress email)`: DBからメールアドレスでユーザーレコードを検索し、`User`ドメインエンティティを再構築。
+        * `void Save(User user)`: `user`ドメインエンティティをDBに永続化（新規または更新）。
+        * `void Delete(UserId id)`: DBからユーザーレコードを削除。
+
+* **`MenuRepositoryImpl`**: `IMenuRepository` を実装
+    * **フィールド**:
+        * `private RecipeSharingDbContext _dbContext;`
+    * **コンストラクタ**:
+        * `MenuRepositoryImpl(RecipeSharingDbContext dbContext)`
+    * **メソッド**:
+        * `Menu? FindById(MenuId id)`: DBから献立レコードと関連する`MenuItems`を取得し、`Menu`ドメインエンティティを再構築。
+        * `IReadOnlyList<Menu> FindByCreatorId(UserId creatorId)`: 特定ユーザーの献立リストを取得。
+        * `void Save(Menu menu)`: `menu`ドメインエンティティをDBに永続化。
+        * `void Delete(MenuId id)`: DBから献立レコードを削除。
+
+* **`CategoryRepositoryImpl`**: `ICategoryRepository` を実装
+    * **フィールド**:
+        * `private RecipeSharingDbContext _dbContext;`
+    * **コンストラクタ**:
+        * `CategoryRepositoryImpl(RecipeSharingDbContext dbContext)`
+    * **メソッド**:
+        * `IReadOnlyList<Category> FindAll()`: 全てのカテゴリを取得。
+        * `Category? FindById(CategoryId id)`: 特定カテゴリを取得。
+        * `void Save(Category category)`: カテゴリをDBに永続化。
+
+* **`TagRepositoryImpl`**: `ITagRepository` を実装
+    * **フィールド**:
+        * `private RecipeSharingDbContext _dbContext;`
+    * **コンストラクタ**:
+        * `TagRepositoryImpl(TagRepositoryImpl dbContext)`
+    * **メソッド**:
+        * `IReadOnlyList<Tag> FindAll()`: 全てのタグを取得。
+        * `Tag? FindById(TagId id)`: 特定タグを取得。
+        * `void Save(Tag tag)`: タグをDBに永続化。
+
+#### データベースコンテキスト / ORM設定
+* **`RecipeSharingDbContext`**: EF Core の `DbContext`
+    * **フィールド/プロパティ**:
+        * `public DbSet<UserDbEntity> Users { get; set; }` (DBにマッピングされるエンティティのセット)
+        * `public DbSet<RecipeDbEntity> Recipes { get; set; }`
+        * `public DbSet<IngredientDbEntity> Ingredients { get; set; }`
+        * `public DbSet<StepDbEntity> Steps { get; set; }`
+        * `public DbSet<MenuDbEntity> Menus { get; set; }`
+        * `public DbSet<MenuItemDbEntity> MenuItems { get; set; }`
+        * `public DbSet<CategoryDbEntity> Categories { get; set; }`
+        * `public DbSet<TagDbEntity> Tags { get; set; }`
+    * **コンストラクタ**:
+        * `RecipeSharingDbContext(DbContextOptions<RecipeSharingDbContext> options)`
+    * **メソッド**:
+        * `OnModelCreating(ModelBuilder modelBuilder)`:
+            * DBエンティティとテーブルのマッピング定義。
+            * リレーションシップ（1対多、多対多など）の定義。
+            * 値オブジェクトのプロパティをDBの列にマッピングする方法の定義（例: `CookingTime`の`Minutes`を`int`列に保存）。
+
+#### ヘルパー / ユーティリティ
+* **`PasswordHasher`**:
+    * **メソッド**:
+        * `string HashPassword(string password)`: 平文パスワードをハッシュ化して返す。
+        * `bool VerifyPassword(string hashedPassword, string providedPassword)`: ハッシュ化されたパスワードと提供されたパスワードが一致するか検証。
+
+---
+
+## 4. プレゼンテーション層 (Presentation Layer) - 詳細化
+
+### 責任
+* **ユーザーインターフェース (UI) の描画と管理**: 画面のレイアウト、コントロールの配置。
+* **ユーザー入力のハンドリング**: ボタンクリック、テキスト入力、フォーム送信などのイベント処理。
+* **UI固有のバリデーション**: フォーム入力が数値であるか、必須項目が埋まっているかなど（ビジネスルールはアプリケーション層/ドメイン層でバリデート）。
+* **アプリケーション層のサービスの呼び出し**: ユーザー操作に応じてアプリケーションサービスに処理を依頼。
+* **アプリケーション層から返された結果のUIへの表示**: DTOで受け取ったデータを画面に表示、成功/失敗メッセージの表示、エラーメッセージの表示。
+
+### 含まれる要素
+
+#### フォーム / コントロール (Forms / Controls)
+Windows Formsの画面と、それらを構成するUIコンポーネントです。各フォームは、対応するアプリケーションサービスに依存します。
+
+* **`LoginForm`**: ユーザーログイン画面
+    * **フィールド**:
+        * `private UserApplicationService _userService;` (DIで受け取る)
+        * `private TextBox usernameTextBox;`
+        * `private TextBox passwordTextBox;`
+        * `private Button loginButton;`
+    * **コンストラクタ**:
+        * `LoginForm(UserApplicationService userService)`
+    * **メソッド**:
+        * `loginButton_Click(object sender, EventArgs e)`:
+            * `usernameTextBox.Text`と`passwordTextBox.Text`から`LoginDto`を作成。
+            * `_userService.AuthenticateUser(loginDto)`を呼び出す。
+            * 結果に応じて、`MainForm`を開く、またはエラーメッセージを表示。
+        * `RegisterLink_Click(...)`: ユーザー登録フォームを開く。
+
+* **`MainForm`**: メインアプリケーションウィンドウ、ナビゲーション
+    * **フィールド**:
+        * `private Button recipeListButton;`
+        * `private Button newRecipeButton;`
+        * `private Button menuSuggestionButton;`
+        * `private Button userProfileButton;`
+    * **コンストラクタ**:
+        * `MainForm()` (または必要なアプリケーションサービスをDI)
+    * **メソッド**:
+        * `recipeListButton_Click(...)`: `RecipeListForm`のインスタンスを作成し、表示。
+        * `newRecipeButton_Click(...)`: `RecipeEditForm`（新規作成モード）のインスタンスを作成し、表示。
+        * `menuSuggestionButton_Click(...)`: `MenuSuggestionForm`のインスタンスを作成し、表示。
+        * `userProfileButton_Click(...)`: `UserProfileForm`のインスタンスを作成し、表示。
+
+* **`RecipeListForm`**: レシピ一覧表示、検索結果表示
+    * **フィールド**:
+        * `private RecipeApplicationService _recipeService;` (DIで受け取る)
+        * `private DataGridView recipeDataGridView;`
+        * `private TextBox searchKeywordTextBox;`
+        * `private Button searchButton;`
+        * `private ComboBox categoryComboBox;`
+    * **コンストラクタ**:
+        * `RecipeListForm(RecipeApplicationService recipeService)`
+    * **メソッド**:
+        * `RecipeListForm_Load(...)`: 初期表示時に`_recipeService.SearchRecipes()`などを呼び出し、`recipeDataGridView`に結果（`RecipeSummaryDto`のリスト）を表示。
+        * `searchButton_Click(...)`:
+            * 入力値から`RecipeSearchCriteriaDto`を作成。
+            * `_recipeService.SearchRecipes(criteriaDto)`を呼び出す。
+            * 結果を`recipeDataGridView`に再表示。
+        * `recipeDataGridView_CellDoubleClick(...)`:
+            * 選択されたレシピのIDを取得。
+            * `RecipeDetailForm`（または`RecipeEditForm`の閲覧モード）を開き、IDを渡す。
+
+* **`RecipeEditForm`**: レシピの新規作成/編集画面
+    * **フィールド**:
+        * `private RecipeApplicationService _recipeService;` (DIで受け取る)
+        * `private TextBox titleTextBox;`
+        * `private TextBox descriptionTextBox;`
+        * `private TextBox cookingTimeMinutesTextBox;`
+        * `private DataGridView ingredientsDataGridView;`
+        * `private DataGridView stepsDataGridView;`
+        * `private Button saveButton;`
+        * `private Button deleteButton;`
+        * `private RecipeId _currentRecipeId;` (編集モードの場合)
+    * **コンストラクタ**:
+        * `RecipeEditForm(RecipeApplicationService recipeService, RecipeId? recipeId = null)`
+    * **メソッド**:
+        * `RecipeEditForm_Load(...)`: `_currentRecipeId`があれば`_recipeService.GetRecipeDetail(_currentRecipeId)`を呼び出し、`RecipeDetailDto`のデータをフォームにロード。
+        * `saveButton_Click(...)`:
+            * フォーム入力値から`RegisterRecipeDto`または`UpdateRecipeDto`を作成。
+            * UI固有の簡単なバリデーションを実行。
+            * `_recipeService.RegisterRecipe()`または`_recipeService.UpdateRecipe()`を呼び出す。
+            * 成功/失敗メッセージを表示し、必要であればフォームを閉じる。
+        * `deleteButton_Click(...)`:
+            * 確認ダイアログ表示。
+            * `_recipeService.DeleteRecipe(_currentRecipeId)`を呼び出す。
+            * 成功/失敗メッセージを表示し、フォームを閉じる。
+        * `addIngredientButton_Click(...)`, `removeIngredientButton_Click(...)` など: `ingredientsDataGridView`の操作とデータの追加・削除・更新ロジック。これらの変更は最終的に`saveButton_Click`でDTOを通じてアプリケーション層に渡される。
+
+* **`MenuSuggestionForm`**: 献立提案機能の画面
+    * **フィールド**:
+        * `private MenuApplicationService _menuService;` (DIで受け取る)
+        * `private DataGridView suggestedMenuDataGridView;`
+        * `private DateTimePicker startDatePicker;`
+        * `private Button suggestButton;`
+        * `private Button saveMenuButton;`
+    * **コンストラクタ**:
+        * `MenuSuggestionForm(MenuApplicationService menuService)`
+    * **メソッド**:
+        * `suggestButton_Click(...)`:
+            * 入力値から`MenuSuggestionRequestDto`を作成。
+            * `_menuService.SuggestMenu(requestDto)`を呼び出す。
+            * 結果（`SuggestedMenuDto`）を`suggestedMenuDataGridView`に表示。
+        * `saveMenuButton_Click(...)`:
+            * 表示されている献立データから`SaveMenuDto`を作成。
+            * `_menuService.SaveMenu(saveMenuDto)`を呼び出す。
+            * 成功/失敗メッセージを表示。
+
+* **`UserProfileForm`**: ユーザーのプロフィール管理画面
+    * **フィールド**:
+        * `private UserApplicationService _userService;` (DIで受け取る)
+        * `private TextBox usernameTextBox;`
+        * `private TextBox emailTextBox;`
+        * `private Button updateProfileButton;`
+        * `private Button changePasswordButton;`
+    * **コンストラクタ**:
+        * `UserProfileForm(UserApplicationService userService)`
+    * **メソッド**:
+        * `UserProfileForm_Load(...)`: 現在のユーザー情報を取得し、フォームにロード。
+        * `updateProfileButton_Click(...)`:
+            * フォーム入力値から`UpdateUserDto`を作成。
+            * `_userService.UpdateUserProfile(updateUserDto)`を呼び出す。
+            * 成功/失敗メッセージを表示。
+        * `changePasswordButton_Click(...)`: `ChangePasswordForm`を開く。
+
+---
+
+この詳細なリストは、インフラストラクチャ層とプレゼンテーション層のクラスがどのようなメソッドを持ち、どのように連携するかを具体的に示しています。
+
+* **インフラストラクチャ層**は、データベースとのやり取りの「詳細」に責任を持ち、ドメイン層のインターフェースを実装します。
+* **プレゼンテーション層**は、ユーザー操作とUIの表示に特化し、アプリケーション層の公開メソッドを呼び出して処理を依頼します。
+
+これで、クラス図の作成に必要な全ての層の具体的な要素が揃ったはずです。この情報をもとに、ぜひDraw.ioでクラス図を完成させてくださいね！
