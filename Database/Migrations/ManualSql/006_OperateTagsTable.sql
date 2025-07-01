@@ -11,4 +11,11 @@ INSERT INTO Tags (Name) VALUES
 ('和風');
 
 SELECT *
-FROM tags;
+FROM recipes;
+
+SELECT
+    r.title AS "タイトル"
+    , c.name AS "カテゴリー名"
+FROM recipes AS r
+INNER JOIN categories AS c
+    ON r.categoryid = c.id;
