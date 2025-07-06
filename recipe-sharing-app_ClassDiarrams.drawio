@@ -1,9 +1,461 @@
 <mxfile host="65bd71144e">
     <diagram id="sV9kp7NGZVInr88m_-wX" name="クラス図">
-        <mxGraphModel dx="1942" dy="528" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+        <mxGraphModel dx="814" dy="556" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
-                <mxCell id="2" value="Domain Layer" style="" parent="0" visible="0"/>
+                <mxCell id="5" value="Infrastracture Layer" style="locked=1;" parent="0" visible="0"/>
+                <mxCell id="224" value="RecipeRepositoryImpl" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="5" vertex="1">
+                    <mxGeometry x="10" y="10" width="400" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="225" value="- _dbContext: RecipeSharingDbContext" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="224" vertex="1">
+                    <mxGeometry y="26" width="400" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="226" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="224" vertex="1">
+                    <mxGeometry y="60" width="400" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="227" value="+ FindById(RecipeId id): Recipe?&lt;div&gt;+ Save(Recipe recipe): void&lt;/div&gt;&lt;div&gt;+ Delete(RecipeId id): void&lt;/div&gt;&lt;div&gt;+ FindByCriteria(RecipeSearchCriteria criteria): IReadOnlyList&amp;lt;Recipe&amp;gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="224" vertex="1">
+                    <mxGeometry y="68" width="400" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="228" value="UserRepositoryImpl" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="5" vertex="1">
+                    <mxGeometry x="427" y="10" width="250" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="229" value="- _dbContext: RecipeSharingDbContext" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="228" vertex="1">
+                    <mxGeometry y="26" width="250" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="230" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="228" vertex="1">
+                    <mxGeometry y="60" width="250" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="231" value="+ FindById(RecipeId id): User?&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;+ FindByEmail(EmailAddress email): User?&lt;/span&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;+ Save(User user): void&lt;/div&gt;&lt;div&gt;+ Delete(UserId id): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="228" vertex="1">
+                    <mxGeometry y="68" width="250" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="232" value="MenuRepositoryImpl" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="5" vertex="1">
+                    <mxGeometry x="10" y="200" width="340" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="233" value="- _dbContext: RecipeSharingDbContext" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="232" vertex="1">
+                    <mxGeometry y="26" width="340" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="234" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="232" vertex="1">
+                    <mxGeometry y="60" width="340" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="235" value="+ FindById(MenuId id): Menu?&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ FindByCreatorId(UserId creatorId): IReadOnlyList&amp;lt;Recipe&amp;gt;&lt;/span&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;+ Save(Menu menu): void&lt;/div&gt;&lt;div&gt;+ Delete(MenuId id): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="232" vertex="1">
+                    <mxGeometry y="68" width="340" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="236" value="CategoryRepositoryImpl" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="5" vertex="1">
+                    <mxGeometry x="427" y="200" width="340" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="237" value="- _dbContext: RecipeSharingDbContext" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="236" vertex="1">
+                    <mxGeometry y="26" width="340" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="238" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="236" vertex="1">
+                    <mxGeometry y="60" width="340" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="239" value="+ FindAll(): IReadOnlyList&amp;lt;Category&amp;gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ FindById(CategoryId id): Category?&lt;/span&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;+ Save(Menu menu): void&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="236" vertex="1">
+                    <mxGeometry y="68" width="340" height="52" as="geometry"/>
+                </mxCell>
+                <mxCell id="240" value="TagRepositoryImpl" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="5" vertex="1">
+                    <mxGeometry x="10" y="370" width="340" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="241" value="- _dbContext: RecipeSharingDbContext" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="240" vertex="1">
+                    <mxGeometry y="26" width="340" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="242" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="240" vertex="1">
+                    <mxGeometry y="60" width="340" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="243" value="+ FindAll(): IReadOnlyList&amp;lt;Tag&amp;gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ FindById(TagId id): Tag?&lt;/span&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;+ Save(Tag tag): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="240" vertex="1">
+                    <mxGeometry y="68" width="340" height="52" as="geometry"/>
+                </mxCell>
+                <mxCell id="244" value="RecipeSharingDbContext" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="5" vertex="1">
+                    <mxGeometry x="414" y="370" width="340" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="245" value="+ Users { get; set; }: DbSet&amp;lt;UserDbEntity&amp;gt;&amp;nbsp;&lt;div&gt;+ Recipes { get; set; }: DbSet&amp;lt;RecipeDbEntity&amp;gt;&lt;/div&gt;&lt;div&gt;+ Ingredients { get; set; }:&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;DbSet&amp;lt;IngredientDbEntity&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ Steps { get; set; }:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;DbSet&amp;lt;StepDbEntity&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ Menus { get; set; }:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;DbSet&amp;lt;MenuDbEntity&amp;gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ MenuItems { get; set; }:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;DbSet&amp;lt;MenuItemDbEntity&amp;gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ Categories { get; set; }:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;DbSet&amp;lt;CategoryDbEntity&amp;gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ Tags { get; set; }:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;DbSet&amp;lt;TagDbEntity&amp;gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="244" vertex="1">
+                    <mxGeometry y="26" width="340" height="124" as="geometry"/>
+                </mxCell>
+                <mxCell id="246" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="244" vertex="1">
+                    <mxGeometry y="150" width="340" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="247" value="&lt;div&gt;&lt;div&gt;+ OnModelCreating(ModelBuilder modelBuider)&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="244" vertex="1">
+                    <mxGeometry y="158" width="340" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="248" value="PasswordHasher" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="5" vertex="1">
+                    <mxGeometry x="20" y="640" width="420" height="86" as="geometry"/>
+                </mxCell>
+                <mxCell id="250" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="248" vertex="1">
+                    <mxGeometry y="26" width="420" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="251" value="+ HashPassword(string password): string&lt;div&gt;+ VerifyPassword(string hashedPassword, string providedPassword) : bool&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="248" vertex="1">
+                    <mxGeometry y="34" width="420" height="52" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Application Layer" style="locked=1;" parent="0" visible="0"/>
+                <mxCell id="389" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="3">
+                    <mxGeometry x="710" y="680" width="420" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="356" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="3">
+                    <mxGeometry x="420" y="400" width="530" height="236" as="geometry"/>
+                </mxCell>
+                <mxCell id="354" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="3">
+                    <mxGeometry x="40" y="669.08" width="310" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="351" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="3">
+                    <mxGeometry x="50" y="200" width="310" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="Jzm5es1UA0hY-DLwzCMh-368" value="User" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="440" y="184" width="180" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="Jzm5es1UA0hY-DLwzCMh-371" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="Jzm5es1UA0hY-DLwzCMh-368" vertex="1">
+                    <mxGeometry y="26" width="180" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="118" value="UserApplicationService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="40" y="40" width="320" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="Jzm5es1UA0hY-DLwzCMh-337" value="" style="endArrow=open;endFill=1;endSize=12;html=1;exitX=0.999;exitY=0.572;exitDx=0;exitDy=0;exitPerimeter=0;" parent="118" source="119" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="360" y="40" as="sourcePoint"/>
+                        <mxPoint x="400" y="40" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="119" value="- IUserRepository" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="118" vertex="1">
+                    <mxGeometry y="26" width="320" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="120" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="118" vertex="1">
+                    <mxGeometry y="50" width="320" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="121" value="&lt;div&gt;+ RegisterUser(ResisterUserDto dto): void&lt;/div&gt;&lt;div&gt;+ AuthenticateUser(LoginDto dto): bool&lt;/div&gt;&lt;div&gt;+ UpdateUserProfile(UpdateUserDto dto): void&lt;/div&gt;&lt;div&gt;+ ChangeUserPassword(ChangePasswordDto dto): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="118" vertex="1">
+                    <mxGeometry y="58" width="320" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="123" value="RecipeApplicationService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="40" y="400" width="320" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="124" value="- IRecipeRepository&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- IUserRepository&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- ICategoryRepository&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- ITagRepository&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- RecipeSearchService&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="123" vertex="1">
+                    <mxGeometry y="26" width="320" height="84" as="geometry"/>
+                </mxCell>
+                <mxCell id="125" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="123" vertex="1">
+                    <mxGeometry y="110" width="320" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="126" value="&lt;div&gt;+ RegisterRecipe(ResisterRecipeDto dto): void&lt;/div&gt;&lt;div&gt;+ GetRecipeDetail(RecipeId id): RecipeDetailDto&lt;/div&gt;&lt;div&gt;+ UpdateRecipe(UpdateRecipeDto dto): void&lt;/div&gt;&lt;div&gt;+ DeleteRecipe(RecipeId id): void&lt;/div&gt;&lt;div&gt;+ PublishRecipe(RecipeId id): void&lt;/div&gt;&lt;div&gt;+ SearchRecipes(RecipeSearchCriteraDto criteriaDto): IReadOnlyList&amp;lt;RecipeSummaryDto&amp;gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="123" vertex="1">
+                    <mxGeometry y="118" width="320" height="112" as="geometry"/>
+                </mxCell>
+                <mxCell id="127" value="MenuApplicationService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="40" y="840" width="340" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="128" value="- IMenuRepository&lt;div&gt;- IRecipeRepository&lt;/div&gt;&lt;div&gt;- MenuSuggestionService&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="127" vertex="1">
+                    <mxGeometry y="26" width="340" height="54" as="geometry"/>
+                </mxCell>
+                <mxCell id="129" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="127" vertex="1">
+                    <mxGeometry y="80" width="340" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="130" value="&lt;div&gt;+ SuggestMenu(MenuSuggestionRequestDto dto): SuggestedMenuDto&lt;/div&gt;&lt;div&gt;+ SaveMenu(SaveMenuDto dto): void&lt;/div&gt;&lt;div&gt;+ GetMenu(MenuId id): MenuDetailDto&lt;/div&gt;&lt;div&gt;+ GetWeeklyMenus(UserId userId, DateTime weekStartDate): IReadOnlyList&amp;lt;MenuDetailDto&amp;gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="127" vertex="1">
+                    <mxGeometry y="88" width="340" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="131" value="RegisterUserDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="350" y="1110" width="120" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="133" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="131" vertex="1">
+                    <mxGeometry y="26" width="120" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="136" value="LoginDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="85" y="210" width="90" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="137" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="136" vertex="1">
+                    <mxGeometry y="26" width="90" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="138" value="UpdateUserDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="65" y="270" width="110" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="139" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="138" vertex="1">
+                    <mxGeometry y="26" width="110" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="140" value="ChangePasswordDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="200" y="270" width="140" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="141" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="140" vertex="1">
+                    <mxGeometry y="26" width="140" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="142" value="RegisterRecipeDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="40" y="679.08" width="140" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="143" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="142" vertex="1">
+                    <mxGeometry y="26" width="140" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="144" value="UpdateRecipeDto&lt;span style=&quot;font-family: monospace; font-size: 0px; font-weight: 400; text-align: start; text-wrap-mode: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22RegisterUserDto%22%20style%3D%22swimlane%3BfontStyle%3D1%3Balign%3Dcenter%3BverticalAlign%3Dtop%3BchildLayout%3DstackLayout%3Bhorizontal%3D1%3BstartSize%3D26%3BhorizontalStack%3D0%3BresizeParent%3D1%3BresizeParentMax%3D0%3BresizeLast%3D0%3Bcollapsible%3D1%3BmarginBottom%3D0%3BwhiteSpace%3Dwrap%3Bhtml%3D1%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%2240%22%20y%3D%22480%22%20width%3D%22120%22%20height%3D%2234%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3CmxCell%20id%3D%223%22%20value%3D%22%22%20style%3D%22line%3BstrokeWidth%3D1%3BfillColor%3Dnone%3Balign%3Dleft%3BverticalAlign%3Dmiddle%3BspacingTop%3D-1%3BspacingLeft%3D3%3BspacingRight%3D3%3Brotatable%3D0%3BlabelPosition%3Dright%3Bpoints%3D%5B%5D%3BportConstraint%3Deastwest%3BstrokeColor%3Dinherit%3B%22%20vertex%3D%221%22%20parent%3D%222%22%3E%3CmxGeometry%20y%3D%2226%22%20width%3D%22120%22%20height%3D%228%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="200" y="210" width="120" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="353" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;dashed=1;exitX=1;exitY=0.306;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="144">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint y="-40" as="sourcePoint"/>
+                        <mxPoint y="-10" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="145" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="144" vertex="1">
+                    <mxGeometry y="26" width="120" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="146" value="RecipeDetailDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="430" y="1220" width="120" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="147" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="146" vertex="1">
+                    <mxGeometry y="26" width="120" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="148" value="RecipeSummaryDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="510" y="1130" width="120" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="149" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="148" vertex="1">
+                    <mxGeometry y="26" width="120" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="150" value="RecipeSearchCriteriaDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="200" y="679.08" width="150" height="34" as="geometry">
+                        <mxRectangle x="490" y="540" width="170" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="151" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="150" vertex="1">
+                    <mxGeometry y="26" width="150" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="152" value="MenuSuggestionRequestDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="40" y="1160" width="180" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="153" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="152" vertex="1">
+                    <mxGeometry y="26" width="180" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="154" value="SuggestedMenuDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="40" y="1100" width="150" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="155" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="154" vertex="1">
+                    <mxGeometry y="26" width="150" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="156" value="SaveMenuDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="210" y="1100" width="130" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="157" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="156" vertex="1">
+                    <mxGeometry y="26" width="130" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="321" value="IRecipeRepository" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="440" y="416" width="240" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="322" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="321" vertex="1">
+                    <mxGeometry y="26" width="240" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="323" value="&lt;div&gt;+ FindById(): Recipe?&lt;/div&gt;&lt;div&gt;+ Save(): void&lt;/div&gt;&lt;div&gt;+ Delete(): void&lt;/div&gt;&lt;div&gt;+ FindByCriteria(); IReadOnlyList&amp;lt;Recipe&amp;gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="321" vertex="1">
+                    <mxGeometry y="34" width="240" height="76" as="geometry"/>
+                </mxCell>
+                <mxCell id="324" value="IUserRepository" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="440" y="40" width="170" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="325" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="324" vertex="1">
+                    <mxGeometry y="26" width="170" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="326" value="&lt;div&gt;+ FindById(): User?&lt;/div&gt;&lt;div&gt;+ FindByEmail(): User?&lt;/div&gt;&lt;div&gt;+ Save(): void&lt;/div&gt;&lt;div&gt;+ Delete(): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="324" vertex="1">
+                    <mxGeometry y="34" width="170" height="76" as="geometry"/>
+                </mxCell>
+                <mxCell id="327" value="IMenuRepository" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="460" y="840" width="260" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="328" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="327" vertex="1">
+                    <mxGeometry y="26" width="260" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="329" value="&lt;div&gt;+ FindById(): Menu?&lt;/div&gt;&lt;div&gt;+ FindByCreatorId(): IReadOnlyList&amp;lt;Menu&amp;gt;&lt;/div&gt;&lt;div&gt;+ Save(): void&lt;/div&gt;&lt;div&gt;+ Delete(): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="327" vertex="1">
+                    <mxGeometry y="34" width="260" height="76" as="geometry"/>
+                </mxCell>
+                <mxCell id="330" value="ICategoryRepository" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="440" y="536" width="210" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="331" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="330" vertex="1">
+                    <mxGeometry y="26" width="210" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="332" value="&lt;div&gt;+ FindAll(): IReadOnlyList&amp;lt;Category&amp;gt;&lt;/div&gt;&lt;div&gt;+ FindById(): Category?&lt;/div&gt;&lt;div&gt;+ Save(): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="330" vertex="1">
+                    <mxGeometry y="34" width="210" height="56" as="geometry"/>
+                </mxCell>
+                <mxCell id="333" value="ITagRepository" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="710" y="536" width="200" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="334" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="333" vertex="1">
+                    <mxGeometry y="26" width="200" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="335" value="&lt;div&gt;+ FindAll(): IReadOnlyList&amp;lt;Tag&amp;gt;&lt;/div&gt;&lt;div&gt;+ FindById(): Tag?&lt;/div&gt;&lt;div&gt;+ Save(): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="333" vertex="1">
+                    <mxGeometry y="34" width="200" height="56" as="geometry"/>
+                </mxCell>
+                <mxCell id="qqqFByveNj2deEzyvIYK-337" value="ユーザ管理関連" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="3" vertex="1">
+                    <mxGeometry x="10" y="10" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="Jzm5es1UA0hY-DLwzCMh-374" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;dashed=1;entryX=0.445;entryY=0.001;entryDx=0;entryDy=0;entryPerimeter=0;" parent="3" target="Jzm5es1UA0hY-DLwzCMh-368" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="520" y="150" as="sourcePoint"/>
+                        <mxPoint x="120" y="218.2" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="Jzm5es1UA0hY-DLwzCMh-376" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;dashed=1;entryX=0.002;entryY=-0.003;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.306;exitDx=0;exitDy=0;exitPerimeter=0;" parent="3" source="121" target="Jzm5es1UA0hY-DLwzCMh-368" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="400" y="150" as="sourcePoint"/>
+                        <mxPoint x="400" y="184" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="342" value="IUserRepository" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="710" y="416" width="170" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="343" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="342" vertex="1">
+                    <mxGeometry y="26" width="170" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="344" value="&lt;div&gt;+ FindById(): User?&lt;/div&gt;&lt;div&gt;+ FindByEmail(): User?&lt;/div&gt;&lt;div&gt;+ Save(): void&lt;/div&gt;&lt;div&gt;+ Delete(): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="342" vertex="1">
+                    <mxGeometry y="34" width="170" height="76" as="geometry"/>
+                </mxCell>
+                <mxCell id="345" value="RecipeSearchService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="3">
+                    <mxGeometry x="440" y="670" width="250" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="346" value="- IRecipeRepository&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;- ICategoryRepository&lt;br&gt;&lt;/font&gt;&lt;div&gt;- ITagRepository&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="345">
+                    <mxGeometry y="26" width="250" height="54" as="geometry"/>
+                </mxCell>
+                <mxCell id="347" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="345">
+                    <mxGeometry y="80" width="250" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="348" value="&lt;div&gt;+ SearchRecipes(): IReadOnlyList&amp;lt;Recipe&amp;gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="345">
+                    <mxGeometry y="88" width="250" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="349" value="UpdateRecipeDto&lt;span style=&quot;font-family: monospace; font-size: 0px; font-weight: 400; text-align: start; text-wrap-mode: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22RegisterUserDto%22%20style%3D%22swimlane%3BfontStyle%3D1%3Balign%3Dcenter%3BverticalAlign%3Dtop%3BchildLayout%3DstackLayout%3Bhorizontal%3D1%3BstartSize%3D26%3BhorizontalStack%3D0%3BresizeParent%3D1%3BresizeParentMax%3D0%3BresizeLast%3D0%3Bcollapsible%3D1%3BmarginBottom%3D0%3BwhiteSpace%3Dwrap%3Bhtml%3D1%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%2240%22%20y%3D%22480%22%20width%3D%22120%22%20height%3D%2234%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3CmxCell%20id%3D%223%22%20value%3D%22%22%20style%3D%22line%3BstrokeWidth%3D1%3BfillColor%3Dnone%3Balign%3Dleft%3BverticalAlign%3Dmiddle%3BspacingTop%3D-1%3BspacingLeft%3D3%3BspacingRight%3D3%3Brotatable%3D0%3BlabelPosition%3Dright%3Bpoints%3D%5B%5D%3BportConstraint%3Deastwest%3BstrokeColor%3Dinherit%3B%22%20vertex%3D%221%22%20parent%3D%222%22%3E%3CmxGeometry%20y%3D%2226%22%20width%3D%22120%22%20height%3D%228%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="3">
+                    <mxGeometry x="40" y="739.08" width="120" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="350" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="349">
+                    <mxGeometry y="26" width="120" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="355" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;dashed=1;exitX=0.373;exitY=1.009;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="3">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="159.36" y="629.9979999999999" as="sourcePoint"/>
+                        <mxPoint x="160" y="669.08" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="358" value="" style="endArrow=open;endFill=1;endSize=12;html=1;exitX=0.999;exitY=0.572;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="3">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="360" y="440" as="sourcePoint"/>
+                        <mxPoint x="420" y="440" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="360" value="User" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="3">
+                    <mxGeometry x="730" y="690" width="180" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="363" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="360">
+                    <mxGeometry y="26" width="180" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="366" value="Recipe" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="3">
+                    <mxGeometry x="940" y="690" width="180" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="368" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="366">
+                    <mxGeometry y="26" width="180" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="371" value="Category" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="3">
+                    <mxGeometry x="730" y="750" width="160" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="373" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="371">
+                    <mxGeometry y="26" width="160" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="375" value="Tag" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="3">
+                    <mxGeometry x="940" y="750" width="140" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="378" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="375">
+                    <mxGeometry y="26" width="140" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="390" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;dashed=1;exitX=0.567;exitY=0.999;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.326;entryY=0.003;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="3" target="389">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="846.5099999999998" y="635.7639999999999" as="sourcePoint"/>
+                        <mxPoint x="686" y="680" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="393" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;dashed=1;entryX=0.002;entryY=-0.003;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.306;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="3">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="360" y="610" as="sourcePoint"/>
+                        <mxPoint x="440" y="674" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="394" value="IRecipeRepository" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="3">
+                    <mxGeometry x="750" y="840" width="240" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="395" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="394">
+                    <mxGeometry y="26" width="240" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="396" value="&lt;div&gt;+ FindById(): Recipe?&lt;/div&gt;&lt;div&gt;+ Save(): void&lt;/div&gt;&lt;div&gt;+ Delete(): void&lt;/div&gt;&lt;div&gt;+ FindByCriteria(); IReadOnlyList&amp;lt;Recipe&amp;gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="394">
+                    <mxGeometry y="34" width="240" height="76" as="geometry"/>
+                </mxCell>
+                <mxCell id="397" value="" style="endArrow=open;endFill=1;endSize=12;html=1;exitX=0.999;exitY=0.572;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="3">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="380" y="880" as="sourcePoint"/>
+                        <mxPoint x="440" y="880" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="PresentationLayer" style="locked=1;" parent="0"/>
+                <mxCell id="164" value="LoginForm" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="4" vertex="1">
+                    <mxGeometry x="10" y="10" width="270" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="165" value="- userService: UserApplicationService&lt;div&gt;- usernameTextBox: TextBox&lt;/div&gt;&lt;div&gt;- passwordTextBox TextBox&lt;/div&gt;&lt;div&gt;- loginButton: Button&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="164" vertex="1">
+                    <mxGeometry y="26" width="270" height="64" as="geometry"/>
+                </mxCell>
+                <mxCell id="166" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="164" vertex="1">
+                    <mxGeometry y="90" width="270" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="167" value="+ loginButton_Click(object sender, EventArgs e)&lt;div&gt;+ RegisterLink_Click()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="164" vertex="1">
+                    <mxGeometry y="98" width="270" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="204" value="MainForm" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="4" vertex="1">
+                    <mxGeometry x="310" y="10" width="270" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="205" value="- recipeListButton: Button&lt;div&gt;- newRecipeButton: Button&lt;/div&gt;&lt;div&gt;- menuSuggestionButton: Button&lt;/div&gt;&lt;div&gt;- userProfileButton: Button&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="204" vertex="1">
+                    <mxGeometry y="26" width="270" height="64" as="geometry"/>
+                </mxCell>
+                <mxCell id="206" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="204" vertex="1">
+                    <mxGeometry y="90" width="270" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="207" value="+ recipeListButton_Click()&lt;div&gt;+ newRecipeButton_Click()&lt;/div&gt;&lt;div&gt;+ menuSuggestionButton_Click()&lt;/div&gt;&lt;div&gt;+ userProfileButton_Click()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="204" vertex="1">
+                    <mxGeometry y="98" width="270" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="208" value="RecipeListForm" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="4" vertex="1">
+                    <mxGeometry x="10" y="200" width="270" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="209" value="- recipeService: RecipeApplicationService&lt;div&gt;- recipeDataGridView: DataGridView&lt;/div&gt;&lt;div&gt;- searchKeywordTextBox: TextBox&lt;/div&gt;&lt;div&gt;- SearchButton: Button&lt;/div&gt;&lt;div&gt;- categoryComboBox: ComboBox&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="208" vertex="1">
+                    <mxGeometry y="26" width="270" height="84" as="geometry"/>
+                </mxCell>
+                <mxCell id="210" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="208" vertex="1">
+                    <mxGeometry y="110" width="270" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="211" value="+ RecipeListForm_Load()&lt;div&gt;+ SearchButton_Click()&lt;/div&gt;&lt;div&gt;+ RecipeDataGridView_CellDoubleClick()&lt;/div&gt;&lt;div&gt;+ userProfileButton_Click()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="208" vertex="1">
+                    <mxGeometry y="118" width="270" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="212" value="RecipeEditForm" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="4" vertex="1">
+                    <mxGeometry x="310" y="200" width="270" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="213" value="- recipeService: RecipeApplicationService&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;- titleTextBox: TextBox&lt;br&gt;&lt;/font&gt;&lt;div&gt;- descriptionTextBox: TextBox&lt;/div&gt;&lt;div&gt;- cookingTimeMinutesTextBox: TextBox&lt;/div&gt;&lt;div&gt;- ingredientsDataGridView: DataGridView&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;- stepsDataGridView: DataGridView&lt;/span&gt;&lt;/div&gt;&lt;div&gt;- saveButton: Button&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;- deleteButton: Button&lt;/span&gt;&lt;/div&gt;&lt;div&gt;- currentRecipeId: RecipeId&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="212" vertex="1">
+                    <mxGeometry y="26" width="270" height="134" as="geometry"/>
+                </mxCell>
+                <mxCell id="214" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="212" vertex="1">
+                    <mxGeometry y="160" width="270" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="215" value="+ RecipeEditForm_Load()&lt;div&gt;+ SaveButton_Click()&lt;/div&gt;&lt;div&gt;+ DeleteButton_Click()&lt;/div&gt;&lt;div&gt;+ AddIngredientButton_Click()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="212" vertex="1">
+                    <mxGeometry y="168" width="270" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="216" value="MenuSuggestionForm" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="4" vertex="1">
+                    <mxGeometry x="10" y="480" width="270" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="217" value="- menuService: MenuApplicationService&lt;div&gt;&lt;div&gt;- suggestedMenuDataGridView: DataGridView&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;- startDatePicker: DateTimePicker&lt;/span&gt;&lt;/div&gt;&lt;div&gt;- suggestButton: Button&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;- saveMenuButton: Button&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="216" vertex="1">
+                    <mxGeometry y="26" width="270" height="84" as="geometry"/>
+                </mxCell>
+                <mxCell id="218" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="216" vertex="1">
+                    <mxGeometry y="110" width="270" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="219" value="&lt;div&gt;+ SuggestionButton_Click()&lt;/div&gt;&lt;div&gt;+ SaveMenuButton_Click()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="216" vertex="1">
+                    <mxGeometry y="118" width="270" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="220" value="UserProfileForm" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="4" vertex="1">
+                    <mxGeometry x="310" y="480" width="270" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="221" value="- userService: UserApplicationService&lt;div&gt;&lt;div&gt;- usernameTextBox: TextBox&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;- emailTextBox: TextBox&lt;/span&gt;&lt;/div&gt;&lt;div&gt;- updateProfileButton: Button&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;- changePasswordButton: Button&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="220" vertex="1">
+                    <mxGeometry y="26" width="270" height="84" as="geometry"/>
+                </mxCell>
+                <mxCell id="222" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="220" vertex="1">
+                    <mxGeometry y="110" width="270" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="223" value="&lt;div&gt;+ UserProFileForm_Load()&lt;/div&gt;&lt;div&gt;+ UpdateProfileButton_Click()&lt;/div&gt;&lt;div&gt;+ ChangePasswordButton_Click()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="220" vertex="1">
+                    <mxGeometry y="118" width="270" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Domain Layer" style="locked=1;" parent="0" visible="0"/>
                 <mxCell id="14" value="User" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
                     <mxGeometry x="10" y="20" width="180" height="200" as="geometry"/>
                 </mxCell>
@@ -391,21 +843,9 @@
                 <mxCell id="295" value="0...*" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="2" vertex="1">
                     <mxGeometry x="1260" y="-570" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="296" value="Tag" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
-                    <mxGeometry x="835" y="196" width="140" height="110" as="geometry"/>
-                </mxCell>
-                <mxCell id="300" value="+ ChangeName(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="296" vertex="1">
-                    <mxGeometry y="26" width="140" height="32" as="geometry"/>
-                </mxCell>
-                <mxCell id="299" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="296" vertex="1">
-                    <mxGeometry y="58" width="140" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="298" value="- TagId: int&lt;div&gt;- Name: string&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="296" vertex="1">
-                    <mxGeometry y="66" width="140" height="44" as="geometry"/>
-                </mxCell>
-                <mxCell id="297" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;exitX=0;exitY=0.868;exitDx=0;exitDy=0;exitPerimeter=0;" parent="2" source="298" edge="1">
+                <mxCell id="297" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;exitX=0;exitY=0.839;exitDx=0;exitDy=0;exitPerimeter=0;" parent="2" source="388" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
-                        <mxPoint x="790" y="350" as="sourcePoint"/>
+                        <mxPoint x="835.0000000000002" y="300.19200000000046" as="sourcePoint"/>
                         <mxPoint x="600" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
@@ -481,385 +921,17 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="3" value="Application Layer" style="" parent="0"/>
-                <mxCell id="Jzm5es1UA0hY-DLwzCMh-368" value="User" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="3">
-                    <mxGeometry x="440" y="184" width="180" height="200" as="geometry"/>
+                <mxCell id="385" value="TagId&lt;span style=&quot;font-family: monospace; font-size: 0px; font-weight: 400; text-align: start; text-wrap-mode: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22RecipeId%22%20style%3D%22swimlane%3BfontStyle%3D1%3Balign%3Dcenter%3BverticalAlign%3Dtop%3BchildLayout%3DstackLayout%3Bhorizontal%3D1%3BstartSize%3D26%3BhorizontalStack%3D0%3BresizeParent%3D1%3BresizeParentMax%3D0%3BresizeLast%3D0%3Bcollapsible%3D1%3BmarginBottom%3D0%3BwhiteSpace%3Dwrap%3Bhtml%3D1%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22810%22%20y%3D%22800%22%20width%3D%22130%22%20height%3D%22120%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3CmxCell%20id%3D%223%22%20value%3D%22-%20Value%3A%20Guid%20or%20int%22%20style%3D%22text%3BstrokeColor%3Dnone%3BfillColor%3Dnone%3Balign%3Dleft%3BverticalAlign%3Dtop%3BspacingLeft%3D4%3BspacingRight%3D4%3Boverflow%3Dhidden%3Brotatable%3D0%3Bpoints%3D%5B%5B0%2C0.5%5D%2C%5B1%2C0.5%5D%5D%3BportConstraint%3Deastwest%3BwhiteSpace%3Dwrap%3Bhtml%3D1%3B%22%20vertex%3D%221%22%20parent%3D%222%22%3E%3CmxGeometry%20y%3D%2226%22%20width%3D%22130%22%20height%3D%2224%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3CmxCell%20id%3D%224%22%20value%3D%22%22%20style%3D%22line%3BstrokeWidth%3D1%3BfillColor%3Dnone%3Balign%3Dleft%3BverticalAlign%3Dmiddle%3BspacingTop%3D-1%3BspacingLeft%3D3%3BspacingRight%3D3%3Brotatable%3D0%3BlabelPosition%3Dright%3Bpoints%3D%5B%5D%3BportConstraint%3Deastwest%3BstrokeColor%3Dinherit%3B%22%20vertex%3D%221%22%20parent%3D%222%22%3E%3CmxGeometry%20y%3D%2250%22%20width%3D%22130%22%20height%3D%228%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3CmxCell%20id%3D%225%22%20value%3D%22%26lt%3Bdiv%26gt%3B%2B%20Eqauls()%26lt%3B%2Fdiv%26gt%3B%26lt%3Bdiv%26gt%3B%2B%20GetHashCode()%26lt%3B%2Fdiv%26gt%3B%26lt%3Bdiv%26gt%3B%2B%20ToString()%26lt%3B%2Fdiv%26gt%3B%22%20style%3D%22text%3BstrokeColor%3Dnone%3BfillColor%3Dnone%3Balign%3Dleft%3BverticalAlign%3Dtop%3BspacingLeft%3D4%3BspacingRight%3D4%3Boverflow%3Dhidden%3Brotatable%3D0%3Bpoints%3D%5B%5B0%2C0.5%5D%2C%5B1%2C0.5%5D%5D%3BportConstraint%3Deastwest%3BwhiteSpace%3Dwrap%3Bhtml%3D1%3B%22%20vertex%3D%221%22%20parent%3D%222%22%3E%3CmxGeometry%20y%3D%2258%22%20width%3D%22130%22%20height%3D%2262%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+                    <mxGeometry x="840" y="190" width="130" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="Jzm5es1UA0hY-DLwzCMh-370" value="- UserId: int&lt;div&gt;- UserName: string&lt;/div&gt;&lt;div&gt;- Email: EmailAddress&lt;/div&gt;&lt;div&gt;- PasswordHash: int&lt;/div&gt;&lt;div&gt;- CreatedAt: DateTime&lt;/div&gt;&lt;div&gt;- UpdateAt: DateTime&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Jzm5es1UA0hY-DLwzCMh-368">
-                    <mxGeometry y="26" width="180" height="94" as="geometry"/>
+                <mxCell id="386" value="- Value: Guid or int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="385">
+                    <mxGeometry y="26" width="130" height="24" as="geometry"/>
                 </mxCell>
-                <mxCell id="Jzm5es1UA0hY-DLwzCMh-371" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="Jzm5es1UA0hY-DLwzCMh-368">
-                    <mxGeometry y="120" width="180" height="8" as="geometry"/>
+                <mxCell id="387" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="385">
+                    <mxGeometry y="50" width="130" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="Jzm5es1UA0hY-DLwzCMh-373" value="&lt;div&gt;+ ChangeUserName(): void&lt;/div&gt;+ ChangePassword(): void&lt;div&gt;+ UpdateProfile(): void&lt;/div&gt;&lt;div&gt;+ UpdateLastLoginTime(): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Jzm5es1UA0hY-DLwzCMh-368">
-                    <mxGeometry y="128" width="180" height="72" as="geometry"/>
-                </mxCell>
-                <mxCell id="118" value="UserApplicationService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
-                    <mxGeometry x="40" y="40" width="320" height="130" as="geometry"/>
-                </mxCell>
-                <mxCell id="Jzm5es1UA0hY-DLwzCMh-337" value="" style="endArrow=open;endFill=1;endSize=12;html=1;exitX=0.999;exitY=0.572;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="118" source="119">
-                    <mxGeometry width="160" relative="1" as="geometry">
-                        <mxPoint x="360" y="40" as="sourcePoint"/>
-                        <mxPoint x="400" y="40" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="119" value="- IUserRepository" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="118" vertex="1">
-                    <mxGeometry y="26" width="320" height="24" as="geometry"/>
-                </mxCell>
-                <mxCell id="120" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="118" vertex="1">
-                    <mxGeometry y="50" width="320" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="121" value="&lt;div&gt;+ RegisterUser(ResisterUserDto dto)&lt;/div&gt;&lt;div&gt;+ AuthenticateUser(LoginDto dto)&lt;/div&gt;&lt;div&gt;+ UpdateUserProfile(UpdateUserDto dto)&lt;/div&gt;&lt;div&gt;+ ChangeUserPassword(ChangePasswordDto dto)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="118" vertex="1">
-                    <mxGeometry y="58" width="320" height="72" as="geometry"/>
-                </mxCell>
-                <mxCell id="123" value="RecipeApplicationService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
-                    <mxGeometry x="40" y="400" width="320" height="220" as="geometry"/>
-                </mxCell>
-                <mxCell id="124" value="- IRecipeRepository&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- IUserRepository&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- ICategoryRepository&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- ITagRepository&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- RecipeSearchService&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="123" vertex="1">
-                    <mxGeometry y="26" width="320" height="84" as="geometry"/>
-                </mxCell>
-                <mxCell id="125" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="123" vertex="1">
-                    <mxGeometry y="110" width="320" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="126" value="&lt;div&gt;+ RegisterRecipe(ResisterRecipeDto dto)&lt;/div&gt;&lt;div&gt;+ GetRecipeDetail(RecipeId id)&lt;/div&gt;&lt;div&gt;+ UpdateRecipe(UpdateRecipeDto dto)&lt;/div&gt;&lt;div&gt;+ DeleteRecipe(RecipeId id)&lt;/div&gt;&lt;div&gt;+ PublishRecipe(RecipeId id)&lt;/div&gt;&lt;div&gt;+ SearchRecipes(RecipeSearchCriteraDto criteriaDto)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="123" vertex="1">
-                    <mxGeometry y="118" width="320" height="102" as="geometry"/>
-                </mxCell>
-                <mxCell id="127" value="MenuApplicationService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
-                    <mxGeometry x="500" y="530" width="340" height="160" as="geometry"/>
-                </mxCell>
-                <mxCell id="128" value="- IMenuRepository&lt;div&gt;- IRecipeRepository&lt;/div&gt;&lt;div&gt;- MenuSuggestionService&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="127" vertex="1">
-                    <mxGeometry y="26" width="340" height="54" as="geometry"/>
-                </mxCell>
-                <mxCell id="129" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="127" vertex="1">
-                    <mxGeometry y="80" width="340" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="130" value="&lt;div&gt;+ SuggestMenu(MenuSuggestionRequestDto dto)&lt;/div&gt;&lt;div&gt;+ SaveMenu(SaveMenuDto dto)&lt;/div&gt;&lt;div&gt;+ GetMenu(MenuId id)&lt;/div&gt;&lt;div&gt;+ GetWeeklyMenus(UserId userId, DateTime weekStartDate)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="127" vertex="1">
-                    <mxGeometry y="88" width="340" height="72" as="geometry"/>
-                </mxCell>
-                <mxCell id="131" value="RegisterUserDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
-                    <mxGeometry x="5" y="660" width="120" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="133" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="131" vertex="1">
-                    <mxGeometry y="26" width="120" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="136" value="LoginDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
-                    <mxGeometry x="40" y="200" width="90" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="137" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="136" vertex="1">
-                    <mxGeometry y="26" width="90" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="138" value="UpdateUserDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
-                    <mxGeometry x="50" y="270" width="110" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="139" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="138" vertex="1">
-                    <mxGeometry y="26" width="110" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="140" value="ChangePasswordDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
-                    <mxGeometry x="220" y="270" width="140" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="141" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="140" vertex="1">
-                    <mxGeometry y="26" width="140" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="142" value="RegisterRecipeDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
-                    <mxGeometry x="660" y="700" width="140" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="143" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="142" vertex="1">
-                    <mxGeometry y="26" width="140" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="144" value="UpdateRecipeDto&lt;span style=&quot;font-family: monospace; font-size: 0px; font-weight: 400; text-align: start; text-wrap-mode: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22RegisterUserDto%22%20style%3D%22swimlane%3BfontStyle%3D1%3Balign%3Dcenter%3BverticalAlign%3Dtop%3BchildLayout%3DstackLayout%3Bhorizontal%3D1%3BstartSize%3D26%3BhorizontalStack%3D0%3BresizeParent%3D1%3BresizeParentMax%3D0%3BresizeLast%3D0%3Bcollapsible%3D1%3BmarginBottom%3D0%3BwhiteSpace%3Dwrap%3Bhtml%3D1%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%2240%22%20y%3D%22480%22%20width%3D%22120%22%20height%3D%2234%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3CmxCell%20id%3D%223%22%20value%3D%22%22%20style%3D%22line%3BstrokeWidth%3D1%3BfillColor%3Dnone%3Balign%3Dleft%3BverticalAlign%3Dmiddle%3BspacingTop%3D-1%3BspacingLeft%3D3%3BspacingRight%3D3%3Brotatable%3D0%3BlabelPosition%3Dright%3Bpoints%3D%5B%5D%3BportConstraint%3Deastwest%3BstrokeColor%3Dinherit%3B%22%20vertex%3D%221%22%20parent%3D%222%22%3E%3CmxGeometry%20y%3D%2226%22%20width%3D%22120%22%20height%3D%228%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
-                    <mxGeometry x="260" y="200" width="120" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="145" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="144" vertex="1">
-                    <mxGeometry y="26" width="120" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="146" value="RecipeDetailDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
-                    <mxGeometry x="160" y="694" width="120" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="147" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="146" vertex="1">
-                    <mxGeometry y="26" width="120" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="148" value="RecipeSummaryDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
-                    <mxGeometry x="360" y="694" width="120" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="149" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="148" vertex="1">
-                    <mxGeometry y="26" width="120" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="150" value="RecipeSearchCriteriaDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
-                    <mxGeometry x="500" y="700" width="150" height="34" as="geometry">
-                        <mxRectangle x="490" y="540" width="170" height="30" as="alternateBounds"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="151" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="150" vertex="1">
-                    <mxGeometry y="26" width="150" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="152" value="MenuSuggestionRequestDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
-                    <mxGeometry x="-10" y="793" width="180" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="153" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="152" vertex="1">
-                    <mxGeometry y="26" width="180" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="154" value="SuggestedMenuDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
-                    <mxGeometry x="210" y="793" width="150" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="155" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="154" vertex="1">
-                    <mxGeometry y="26" width="150" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="156" value="SaveMenuDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
-                    <mxGeometry x="520" y="780" width="130" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="157" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="156" vertex="1">
-                    <mxGeometry y="26" width="130" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="158" value="SaveMenuDto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="3" vertex="1">
-                    <mxGeometry x="660" y="780" width="130" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="159" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="158" vertex="1">
-                    <mxGeometry y="26" width="130" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="321" value="IRecipeRepository" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="3">
-                    <mxGeometry x="800" y="694" width="240" height="110" as="geometry"/>
-                </mxCell>
-                <mxCell id="322" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="321">
-                    <mxGeometry y="26" width="240" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="323" value="&lt;div&gt;+ FindById(): Recipe?&lt;/div&gt;&lt;div&gt;+ Save(): void&lt;/div&gt;&lt;div&gt;+ Delete(): void&lt;/div&gt;&lt;div&gt;+ FindByCriteria(); IReadOnlyList&amp;lt;Recipe&amp;gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="321">
-                    <mxGeometry y="34" width="240" height="76" as="geometry"/>
-                </mxCell>
-                <mxCell id="324" value="IUserRepository" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="3">
-                    <mxGeometry x="440" y="40" width="170" height="110" as="geometry"/>
-                </mxCell>
-                <mxCell id="325" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="324">
-                    <mxGeometry y="26" width="170" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="326" value="&lt;div&gt;+ FindById(): User?&lt;/div&gt;&lt;div&gt;+ FindByEmail(): User?&lt;/div&gt;&lt;div&gt;+ Save(): void&lt;/div&gt;&lt;div&gt;+ Delete(): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="324">
-                    <mxGeometry y="34" width="170" height="76" as="geometry"/>
-                </mxCell>
-                <mxCell id="327" value="IMenuRepository" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="3">
-                    <mxGeometry y="920" width="260" height="110" as="geometry"/>
-                </mxCell>
-                <mxCell id="328" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="327">
-                    <mxGeometry y="26" width="260" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="329" value="&lt;div&gt;+ FindById(): Menu?&lt;/div&gt;&lt;div&gt;+ FindByCreatorId(): IReadOnlyList&amp;lt;Menu&amp;gt;&lt;/div&gt;&lt;div&gt;+ Save(): void&lt;/div&gt;&lt;div&gt;+ Delete(): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="327">
-                    <mxGeometry y="34" width="260" height="76" as="geometry"/>
-                </mxCell>
-                <mxCell id="330" value="ICategoryRepository" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="3">
-                    <mxGeometry x="300" y="920" width="210" height="90" as="geometry"/>
-                </mxCell>
-                <mxCell id="331" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="330">
-                    <mxGeometry y="26" width="210" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="332" value="&lt;div&gt;+ FindAll(): IReadOnlyList&amp;lt;Category&amp;gt;&lt;/div&gt;&lt;div&gt;+ FindById(): Category?&lt;/div&gt;&lt;div&gt;+ Save(): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="330">
-                    <mxGeometry y="34" width="210" height="56" as="geometry"/>
-                </mxCell>
-                <mxCell id="333" value="ITagRepository" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="3">
-                    <mxGeometry x="580" y="920" width="200" height="90" as="geometry"/>
-                </mxCell>
-                <mxCell id="334" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="333">
-                    <mxGeometry y="26" width="200" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="335" value="&lt;div&gt;+ FindAll(): IReadOnlyList&amp;lt;Tag&amp;gt;&lt;/div&gt;&lt;div&gt;+ FindById(): Tag?&lt;/div&gt;&lt;div&gt;+ Save(): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="333">
-                    <mxGeometry y="34" width="200" height="56" as="geometry"/>
-                </mxCell>
-                <mxCell id="qqqFByveNj2deEzyvIYK-337" value="ユーザ管理関連" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="3">
-                    <mxGeometry x="10" y="10" width="110" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="Jzm5es1UA0hY-DLwzCMh-374" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;dashed=1;entryX=0.445;entryY=0.001;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="3" target="Jzm5es1UA0hY-DLwzCMh-368">
-                    <mxGeometry width="160" relative="1" as="geometry">
-                        <mxPoint x="520" y="150" as="sourcePoint"/>
-                        <mxPoint x="120" y="218.2" as="targetPoint"/>
-                        <Array as="points"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="Jzm5es1UA0hY-DLwzCMh-376" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;dashed=1;entryX=0.002;entryY=-0.003;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.306;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="3" source="121" target="Jzm5es1UA0hY-DLwzCMh-368">
-                    <mxGeometry width="160" relative="1" as="geometry">
-                        <mxPoint x="400" y="150" as="sourcePoint"/>
-                        <mxPoint x="400" y="184" as="targetPoint"/>
-                        <Array as="points"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="Jzm5es1UA0hY-DLwzCMh-377" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;dashed=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=0.998;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="3" source="121" target="144">
-                    <mxGeometry width="160" relative="1" as="geometry">
-                        <mxPoint x="220" y="157" as="sourcePoint"/>
-                        <mxPoint x="300" y="220" as="targetPoint"/>
-                        <Array as="points"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="Jzm5es1UA0hY-DLwzCMh-378" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;dashed=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.306;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="3" target="138">
-                    <mxGeometry width="160" relative="1" as="geometry">
-                        <mxPoint x="200" y="170" as="sourcePoint"/>
-                        <mxPoint x="280" y="233" as="targetPoint"/>
-                        <Array as="points"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="Jzm5es1UA0hY-DLwzCMh-379" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;dashed=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="3" target="136">
-                    <mxGeometry width="160" relative="1" as="geometry">
-                        <mxPoint x="200" y="170" as="sourcePoint"/>
-                        <mxPoint x="120" y="220" as="targetPoint"/>
-                        <Array as="points"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="Jzm5es1UA0hY-DLwzCMh-380" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;dashed=1;entryX=0.428;entryY=-0.006;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="3" target="140">
-                    <mxGeometry width="160" relative="1" as="geometry">
-                        <mxPoint x="200" y="170" as="sourcePoint"/>
-                        <mxPoint x="115" y="280" as="targetPoint"/>
-                        <Array as="points"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="4" value="PresentationLayer" style="locked=1;" parent="0" visible="0"/>
-                <mxCell id="164" value="LoginForm" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="4" vertex="1">
-                    <mxGeometry x="10" y="10" width="270" height="140" as="geometry"/>
-                </mxCell>
-                <mxCell id="165" value="- userService: UserApplicationService&lt;div&gt;- usernameTextBox: TextBox&lt;/div&gt;&lt;div&gt;- passwordTextBox TextBox&lt;/div&gt;&lt;div&gt;- loginButton: Button&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="164" vertex="1">
-                    <mxGeometry y="26" width="270" height="64" as="geometry"/>
-                </mxCell>
-                <mxCell id="166" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="164" vertex="1">
-                    <mxGeometry y="90" width="270" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="167" value="+ loginButton_Click(object sender, EventArgs e)&lt;div&gt;+ RegisterLink_Click()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="164" vertex="1">
-                    <mxGeometry y="98" width="270" height="42" as="geometry"/>
-                </mxCell>
-                <mxCell id="204" value="MainForm" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="4" vertex="1">
-                    <mxGeometry x="310" y="10" width="270" height="170" as="geometry"/>
-                </mxCell>
-                <mxCell id="205" value="- recipeListButton: Button&lt;div&gt;- newRecipeButton: Button&lt;/div&gt;&lt;div&gt;- menuSuggestionButton: Button&lt;/div&gt;&lt;div&gt;- userProfileButton: Button&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="204" vertex="1">
-                    <mxGeometry y="26" width="270" height="64" as="geometry"/>
-                </mxCell>
-                <mxCell id="206" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="204" vertex="1">
-                    <mxGeometry y="90" width="270" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="207" value="+ recipeListButton_Click()&lt;div&gt;+ newRecipeButton_Click()&lt;/div&gt;&lt;div&gt;+ menuSuggestionButton_Click()&lt;/div&gt;&lt;div&gt;+ userProfileButton_Click()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="204" vertex="1">
-                    <mxGeometry y="98" width="270" height="72" as="geometry"/>
-                </mxCell>
-                <mxCell id="208" value="RecipeListForm" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="4" vertex="1">
-                    <mxGeometry x="10" y="200" width="270" height="190" as="geometry"/>
-                </mxCell>
-                <mxCell id="209" value="- recipeService: RecipeApplicationService&lt;div&gt;- recipeDataGridView: DataGridView&lt;/div&gt;&lt;div&gt;- searchKeywordTextBox: TextBox&lt;/div&gt;&lt;div&gt;- SearchButton: Button&lt;/div&gt;&lt;div&gt;- categoryComboBox: ComboBox&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="208" vertex="1">
-                    <mxGeometry y="26" width="270" height="84" as="geometry"/>
-                </mxCell>
-                <mxCell id="210" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="208" vertex="1">
-                    <mxGeometry y="110" width="270" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="211" value="+ RecipeListForm_Load()&lt;div&gt;+ SearchButton_Click()&lt;/div&gt;&lt;div&gt;+ RecipeDataGridView_CellDoubleClick()&lt;/div&gt;&lt;div&gt;+ userProfileButton_Click()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="208" vertex="1">
-                    <mxGeometry y="118" width="270" height="72" as="geometry"/>
-                </mxCell>
-                <mxCell id="212" value="RecipeEditForm" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="4" vertex="1">
-                    <mxGeometry x="310" y="200" width="270" height="240" as="geometry"/>
-                </mxCell>
-                <mxCell id="213" value="- recipeService: RecipeApplicationService&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;- titleTextBox: TextBox&lt;br&gt;&lt;/font&gt;&lt;div&gt;- descriptionTextBox: TextBox&lt;/div&gt;&lt;div&gt;- cookingTimeMinutesTextBox: TextBox&lt;/div&gt;&lt;div&gt;- ingredientsDataGridView: DataGridView&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;- stepsDataGridView: DataGridView&lt;/span&gt;&lt;/div&gt;&lt;div&gt;- saveButton: Button&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;- deleteButton: Button&lt;/span&gt;&lt;/div&gt;&lt;div&gt;- currentRecipeId: RecipeId&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="212" vertex="1">
-                    <mxGeometry y="26" width="270" height="134" as="geometry"/>
-                </mxCell>
-                <mxCell id="214" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="212" vertex="1">
-                    <mxGeometry y="160" width="270" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="215" value="+ RecipeEditForm_Load()&lt;div&gt;+ SaveButton_Click()&lt;/div&gt;&lt;div&gt;+ DeleteButton_Click()&lt;/div&gt;&lt;div&gt;+ AddIngredientButton_Click()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="212" vertex="1">
-                    <mxGeometry y="168" width="270" height="72" as="geometry"/>
-                </mxCell>
-                <mxCell id="216" value="MenuSuggestionForm" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="4" vertex="1">
-                    <mxGeometry x="10" y="480" width="270" height="160" as="geometry"/>
-                </mxCell>
-                <mxCell id="217" value="- menuService: MenuApplicationService&lt;div&gt;&lt;div&gt;- suggestedMenuDataGridView: DataGridView&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;- startDatePicker: DateTimePicker&lt;/span&gt;&lt;/div&gt;&lt;div&gt;- suggestButton: Button&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;- saveMenuButton: Button&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="216" vertex="1">
-                    <mxGeometry y="26" width="270" height="84" as="geometry"/>
-                </mxCell>
-                <mxCell id="218" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="216" vertex="1">
-                    <mxGeometry y="110" width="270" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="219" value="&lt;div&gt;+ SuggestionButton_Click()&lt;/div&gt;&lt;div&gt;+ SaveMenuButton_Click()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="216" vertex="1">
-                    <mxGeometry y="118" width="270" height="42" as="geometry"/>
-                </mxCell>
-                <mxCell id="220" value="UserProfileForm" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="4" vertex="1">
-                    <mxGeometry x="310" y="480" width="270" height="180" as="geometry"/>
-                </mxCell>
-                <mxCell id="221" value="- userService: UserApplicationService&lt;div&gt;&lt;div&gt;- usernameTextBox: TextBox&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;- emailTextBox: TextBox&lt;/span&gt;&lt;/div&gt;&lt;div&gt;- updateProfileButton: Button&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;- changePasswordButton: Button&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="220" vertex="1">
-                    <mxGeometry y="26" width="270" height="84" as="geometry"/>
-                </mxCell>
-                <mxCell id="222" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="220" vertex="1">
-                    <mxGeometry y="110" width="270" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="223" value="&lt;div&gt;+ UserProFileForm_Load()&lt;/div&gt;&lt;div&gt;+ UpdateProfileButton_Click()&lt;/div&gt;&lt;div&gt;+ ChangePasswordButton_Click()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="220" vertex="1">
-                    <mxGeometry y="118" width="270" height="62" as="geometry"/>
-                </mxCell>
-                <mxCell id="5" value="Infrastracture Layer" style="locked=1;" parent="0" visible="0"/>
-                <mxCell id="224" value="RecipeRepositoryImpl" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="5" vertex="1">
-                    <mxGeometry x="10" y="10" width="400" height="140" as="geometry"/>
-                </mxCell>
-                <mxCell id="225" value="- _dbContext: RecipeSharingDbContext" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="224" vertex="1">
-                    <mxGeometry y="26" width="400" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="226" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="224" vertex="1">
-                    <mxGeometry y="60" width="400" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="227" value="+ FindById(RecipeId id): Recipe?&lt;div&gt;+ Save(Recipe recipe): void&lt;/div&gt;&lt;div&gt;+ Delete(RecipeId id): void&lt;/div&gt;&lt;div&gt;+ FindByCriteria(RecipeSearchCriteria criteria): IReadOnlyList&amp;lt;Recipe&amp;gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="224" vertex="1">
-                    <mxGeometry y="68" width="400" height="72" as="geometry"/>
-                </mxCell>
-                <mxCell id="228" value="UserRepositoryImpl" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="5" vertex="1">
-                    <mxGeometry x="427" y="10" width="250" height="140" as="geometry"/>
-                </mxCell>
-                <mxCell id="229" value="- _dbContext: RecipeSharingDbContext" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="228" vertex="1">
-                    <mxGeometry y="26" width="250" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="230" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="228" vertex="1">
-                    <mxGeometry y="60" width="250" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="231" value="+ FindById(RecipeId id): User?&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;+ FindByEmail(EmailAddress email): User?&lt;/span&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;+ Save(User user): void&lt;/div&gt;&lt;div&gt;+ Delete(UserId id): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="228" vertex="1">
-                    <mxGeometry y="68" width="250" height="72" as="geometry"/>
-                </mxCell>
-                <mxCell id="232" value="MenuRepositoryImpl" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="5" vertex="1">
-                    <mxGeometry x="10" y="200" width="340" height="140" as="geometry"/>
-                </mxCell>
-                <mxCell id="233" value="- _dbContext: RecipeSharingDbContext" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="232" vertex="1">
-                    <mxGeometry y="26" width="340" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="234" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="232" vertex="1">
-                    <mxGeometry y="60" width="340" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="235" value="+ FindById(MenuId id): Menu?&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ FindByCreatorId(UserId creatorId): IReadOnlyList&amp;lt;Recipe&amp;gt;&lt;/span&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;+ Save(Menu menu): void&lt;/div&gt;&lt;div&gt;+ Delete(MenuId id): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="232" vertex="1">
-                    <mxGeometry y="68" width="340" height="72" as="geometry"/>
-                </mxCell>
-                <mxCell id="236" value="CategoryRepositoryImpl" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="5" vertex="1">
-                    <mxGeometry x="427" y="200" width="340" height="120" as="geometry"/>
-                </mxCell>
-                <mxCell id="237" value="- _dbContext: RecipeSharingDbContext" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="236" vertex="1">
-                    <mxGeometry y="26" width="340" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="238" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="236" vertex="1">
-                    <mxGeometry y="60" width="340" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="239" value="+ FindAll(): IReadOnlyList&amp;lt;Category&amp;gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ FindById(CategoryId id): Category?&lt;/span&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;+ Save(Menu menu): void&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="236" vertex="1">
-                    <mxGeometry y="68" width="340" height="52" as="geometry"/>
-                </mxCell>
-                <mxCell id="240" value="TagRepositoryImpl" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="5" vertex="1">
-                    <mxGeometry x="10" y="370" width="340" height="120" as="geometry"/>
-                </mxCell>
-                <mxCell id="241" value="- _dbContext: RecipeSharingDbContext" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="240" vertex="1">
-                    <mxGeometry y="26" width="340" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="242" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="240" vertex="1">
-                    <mxGeometry y="60" width="340" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="243" value="+ FindAll(): IReadOnlyList&amp;lt;Tag&amp;gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ FindById(TagId id): Tag?&lt;/span&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;+ Save(Tag tag): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="240" vertex="1">
-                    <mxGeometry y="68" width="340" height="52" as="geometry"/>
-                </mxCell>
-                <mxCell id="244" value="RecipeSharingDbContext" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="5" vertex="1">
-                    <mxGeometry x="414" y="370" width="340" height="190" as="geometry"/>
-                </mxCell>
-                <mxCell id="245" value="+ Users { get; set; }: DbSet&amp;lt;UserDbEntity&amp;gt;&amp;nbsp;&lt;div&gt;+ Recipes { get; set; }: DbSet&amp;lt;RecipeDbEntity&amp;gt;&lt;/div&gt;&lt;div&gt;+ Ingredients { get; set; }:&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;DbSet&amp;lt;IngredientDbEntity&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ Steps { get; set; }:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;DbSet&amp;lt;StepDbEntity&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ Menus { get; set; }:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;DbSet&amp;lt;MenuDbEntity&amp;gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ MenuItems { get; set; }:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;DbSet&amp;lt;MenuItemDbEntity&amp;gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ Categories { get; set; }:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;DbSet&amp;lt;CategoryDbEntity&amp;gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ Tags { get; set; }:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;DbSet&amp;lt;TagDbEntity&amp;gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="244" vertex="1">
-                    <mxGeometry y="26" width="340" height="124" as="geometry"/>
-                </mxCell>
-                <mxCell id="246" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="244" vertex="1">
-                    <mxGeometry y="150" width="340" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="247" value="&lt;div&gt;&lt;div&gt;+ OnModelCreating(ModelBuilder modelBuider)&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="244" vertex="1">
-                    <mxGeometry y="158" width="340" height="32" as="geometry"/>
-                </mxCell>
-                <mxCell id="248" value="PasswordHasher" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="5" vertex="1">
-                    <mxGeometry x="20" y="640" width="420" height="86" as="geometry"/>
-                </mxCell>
-                <mxCell id="250" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="248" vertex="1">
-                    <mxGeometry y="26" width="420" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="251" value="+ HashPassword(string password): string&lt;div&gt;+ VerifyPassword(string hashedPassword, string providedPassword) : bool&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="248" vertex="1">
-                    <mxGeometry y="34" width="420" height="52" as="geometry"/>
+                <mxCell id="388" value="&lt;div&gt;+ Eqauls(): bool&lt;/div&gt;&lt;div&gt;+ GetHashCode(): int&lt;/div&gt;&lt;div&gt;+ ToString(): string&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="385">
+                    <mxGeometry y="58" width="130" height="62" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
