@@ -1,5 +1,10 @@
 public class Category
+{
+    public CategoryId Id { get; set; }
+    public string Name { get; set; }
+
+    public void ChangeName()
     {
-        public CategoryId Id { get; set; }
-        public string Name { get; set; }
+
     }
+}
